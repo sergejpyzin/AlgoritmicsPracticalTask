@@ -9,8 +9,6 @@ public class task_HeapSort {
         printArray(someArray);
         heapSort(someArray);
         printArray(someArray);
-
-
     }
 
     public static void printArray(int[] array){
