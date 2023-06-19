@@ -3,16 +3,20 @@ package LessonsThird;
 public class ReverseDoublyLinkedList {
     public static void main(String[] args) {
         ReverseDoublyLinkedList doublyLinkedList = new ReverseDoublyLinkedList();
-        doublyLinkedList.addInFront(1);
-        doublyLinkedList.addInFront(2);
-        doublyLinkedList.addInFront(3);
-        doublyLinkedList.addInFront(4);
-        doublyLinkedList.addInFront(5);
+        doublyLinkedList.addInTail(1);
+        doublyLinkedList.addInTail(2);
+        doublyLinkedList.addInTail(3);
+        doublyLinkedList.addInTail(4);
+        doublyLinkedList.addInTail(5);
+
+        doublyLinkedList.print();
 
 
     }
     private int size;
     private Node root;
+    private Node tail;
+
 
 //    public void DoublyLinkedList() {
 //        Node root = null;
@@ -22,7 +26,7 @@ public class ReverseDoublyLinkedList {
     public boolean isEmpty() {
         return size == 0;
     }
-    public void addInFront(int value){
+    public void addInTail(int value){
         if (isEmpty()){
             root = new Node(value);
         } else {
@@ -33,8 +37,14 @@ public class ReverseDoublyLinkedList {
         size++;
     }
 
-    public void print(){
-
+    public void print() {
+        System.out.print("[ ");
+        Node currentNode = root;
+        while (currentNode != null) {
+            System.out.print(currentNode.value + " ");
+            currentNode = currentNode.next;
+        }
+        System.out.println("]");
     }
     static class Node {
         int value;
