@@ -3,8 +3,9 @@ package LessonsFour;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BinaryTree <T extends Comparable<T>>{
+public class BinaryTree<T extends Comparable<T>> {
     Node root;
+
     public boolean add(T value) {
         if (root == null) {
             root = new Node();
@@ -99,6 +100,7 @@ public class BinaryTree <T extends Comparable<T>>{
         }
         return false;
     }
+
     private Node rebalanced(Node node) {
         Node result = node;
         boolean needRebalance;
@@ -122,11 +124,13 @@ public class BinaryTree <T extends Comparable<T>>{
         } while (needRebalance);
         return result;
     }
+
     private void colorSwap(Node node) {
         node.right.color = Color.Black;
         node.left.color = Color.Black;
         node.color = Color.Red;
     }
+
     private Node leftSwap(Node node) {
         Node left = node.left;
         Node between = left.right;
@@ -136,6 +140,7 @@ public class BinaryTree <T extends Comparable<T>>{
         node.color = Color.Red;
         return left;
     }
+
     private Node rightSwap(Node node) {
         Node right = node.right;
         Node between = right.left;
@@ -145,12 +150,14 @@ public class BinaryTree <T extends Comparable<T>>{
         node.color = Color.Red;
         return right;
     }
+
     private class Node {
         T value;
         Node left;
         Node right;
         Color color;
     }
+
     private class PrintNode {
         Node node;
         String str;
@@ -168,6 +175,7 @@ public class BinaryTree <T extends Comparable<T>>{
             this.str = node.value.toString();
         }
     }
+
     public void print() {
 
         int maxDepth = maxDepth() + 3;
@@ -175,7 +183,7 @@ public class BinaryTree <T extends Comparable<T>>{
         int width = 50;//maxDepth * 4 + 2;
         int height = nodeCount * 5;
         List<List<PrintNode>> list = new ArrayList<List<PrintNode>>();
-        for (int i = 0; i < height; i++) /*РЎРѕР·РґР°РЅРёРµ СЏС‡РµРµРє РјР°СЃСЃРёРІР°*/ {
+        for (int i = 0; i < height; i++) {
             ArrayList<PrintNode> row = new ArrayList<>();
             for (int j = 0; j < width; j++) {
                 row.add(new PrintNode());
@@ -186,7 +194,7 @@ public class BinaryTree <T extends Comparable<T>>{
         list.get(height / 2).set(0, new PrintNode(root));
         list.get(height / 2).get(0).depth = 0;
 
-        for (int j = 0; j < width; j++)  /*РџСЂРёРЅС†РёРї Р·Р°РїРѕР»РЅРµРЅРёСЏ*/ {
+        for (int j = 0; j < width; j++) {
             for (int i = 0; i < height; i++) {
                 PrintNode currentNode = list.get(i).get(j);
                 if (currentNode.node != null) {
