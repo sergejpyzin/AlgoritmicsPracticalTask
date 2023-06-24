@@ -218,7 +218,7 @@ public class BinaryTree<T extends Comparable<T>> {
                 }
             }
         }
-        for (int i = 0; i < height; i++) /*Р§РёСЃС‚РєР° РїСѓСЃС‚С‹С… СЃС‚СЂРѕРє*/ {
+        for (int i = 0; i < height; i++) {
             boolean flag = true;
             for (int j = 0; j < width; j++) {
                 if (list.get(i).get(j).str != " ") {
